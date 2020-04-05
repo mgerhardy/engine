@@ -129,7 +129,7 @@ void meshify(Mesh* result, bool mergeQuads, QuadListVector& vecListQuads) {
 	}
 }
 
-IndexType addVertex(bool reuseVertices, uint32_t uX, uint32_t uY, uint32_t uZ, const Voxel& materialIn, Array& existingVertices,
+IndexType addVertex(bool reuseVertices, uint32_t uX, uint32_t uY, uint32_t uZ, FaceNames face, const Voxel& materialIn, Array& existingVertices,
 		Mesh* meshCurrent, const VoxelType face1, const VoxelType face2, const VoxelType corner, const glm::ivec3& offset) {
 	core_trace_scoped(AddVertex);
 	const uint8_t ambientOcclusion = vertexAmbientOcclusion(
@@ -147,7 +147,7 @@ IndexType addVertex(bool reuseVertices, uint32_t uX, uint32_t uY, uint32_t uZ, c
 			VoxelVertex vertex;
 			vertex.position = glm::ivec3(uX, uY, uZ) + offset;
 			vertex.colorIndex = materialIn.getColor();
-			vertex.material = materialIn.getMaterial();
+			vertex.face = (uint8_t)face;
 			vertex.ambientOcclusion = ambientOcclusion;
 
 			entry.index = meshCurrent->addVertex(vertex) + 1;

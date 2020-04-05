@@ -9,7 +9,17 @@ layout(std140) uniform u_materialblock {
 	vec4 u_materialcolor[MATERIALCOLORS];
 };
 
+const vec3 c_normals[6] = vec3[](
+	vec3( 1.0,  0.0,  0.0),
+	vec3( 0.0,  1.0,  0.0),
+	vec3( 0.0,  0.0,  1.0),
+	vec3(-1.0,  0.0,  0.0),
+	vec3( 0.0, -1.0,  0.0),
+	vec3( 0.0,  0.0, -1.0)
+);
+
 $out vec4 v_pos;
+$out vec3 v_norm;
 $out vec4 v_color;
 $out float v_ambientocclusion;
 
@@ -19,7 +29,8 @@ $out float v_ambientocclusion;
 void main(void) {
 	uint a_ao = a_info[0];
 	uint a_colorindex = a_info[1];
-	uint a_material = a_info[2];
+	uint a_face = a_info[2];
+	v_norm = c_normals[a_face];
 	v_pos = u_model * vec4(a_pos, 1.0);
 
 	int materialColorIndex = int(a_colorindex);

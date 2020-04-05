@@ -1,4 +1,5 @@
 $in vec3 v_pos;
+$in vec3 v_norm;
 $in vec4 v_color;
 $in vec4 v_clipspace;
 $in float v_ambientocclusion;
@@ -64,13 +65,10 @@ void main(void) {
 	if (alpha <= 0.01) {
 		discard;
 	}
-	vec3 fdx = dFdx(v_pos);
-	vec3 fdy = dFdy(v_pos);
-	vec3 normal = normalize(cross(fdx, fdy));
-	float ndotl = abs(dot(normal, u_lightdir));
+	float ndotl = abs(dot(v_norm, u_lightdir));
 	vec3 diffuse = u_diffuse_color * ndotl;
 	vec3 ambientColor = dayTimeColor(u_ambient_color, u_time);
-	vec3 voxelColor = baseColor(normal);
+	vec3 voxelColor = baseColor(v_norm);
 	float bias = max(0.05 * (1.0 - ndotl), 0.005);
 	vec3 shadowColor = shadow(vec4(v_lightspacepos, 1.0), bias, voxelColor, diffuse, ambientColor);
 	vec3 linearColor = shadowColor * v_ambientocclusion;

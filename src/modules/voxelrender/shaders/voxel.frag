@@ -1,4 +1,5 @@
 $in vec4 v_pos;
+$in vec3 v_norm;
 $in vec4 v_color;
 $in float v_ambientocclusion;
 uniform mat4 u_viewprojection;
@@ -28,11 +29,8 @@ void main(void) {
 	} else
 #endif // r_renderoutline
 	{
-		vec3 fdx = dFdx(v_pos.xyz);
-		vec3 fdy = dFdy(v_pos.xyz);
-		vec3 normal = normalize(cross(fdx, fdy));
-		float ndotl1 = dot(normal, u_lightdir);
-		float ndotl2 = dot(normal, -u_lightdir);
+		float ndotl1 = dot(v_norm, u_lightdir);
+		float ndotl2 = dot(v_norm, -u_lightdir);
 		vec3 diffuse = u_diffuse_color * max(0.0, max(ndotl1, ndotl2));
 		float bias = max(0.05 * (1.0 - ndotl1), 0.005);
 		vec3 shadowColor = shadow(vec4(v_lightspacepos, 1.0), bias, v_color.rgb, diffuse, u_ambient_color);

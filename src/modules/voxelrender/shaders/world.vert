@@ -21,7 +21,17 @@ layout(std140) uniform u_materialblock {
 	vec4 u_materialcolor[MATERIALCOLORS];
 };
 
+const vec3 c_normals[6] = vec3[](
+	vec3( 1.0,  0.0,  0.0),
+	vec3( 0.0,  1.0,  0.0),
+	vec3( 0.0,  0.0,  1.0),
+	vec3(-1.0,  0.0,  0.0),
+	vec3( 0.0, -1.0,  0.0),
+	vec3( 0.0,  0.0, -1.0)
+);
+
 $out vec3 v_pos;
+$out vec3 v_norm;
 $out vec4 v_color;
 $out vec4 v_clipspace;
 $out float v_ambientocclusion;
@@ -33,13 +43,14 @@ $out float v_ambientocclusion;
 void main(void) {
 	uint a_ao = a_info[0];
 	uint a_colorindex = a_info[1];
-	uint a_material = a_info[2];
+	uint a_face = a_info[2];
 	vec4 pos = u_model * vec4(a_pos, 1.0);
 #ifdef INSTANCED
 	pos += vec4(a_offset, 0.0);
 #endif // INSTANCED
 	v_pos = pos.xyz;
 	v_clipspace = u_viewprojection * pos;
+	v_norm = c_normals[a_face];
 
 	gl_ClipDistance[0] = dot(pos, u_clipplane);
 

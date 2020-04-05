@@ -15,11 +15,16 @@ namespace voxel {
  */
 struct VoxelVertex {
 	glm::ivec3 position;
-	/** 0 is the darkest, 3 is no occlusion at all */
+	/**
+	 * AO: 0 is the darkest, 3 is no occlusion at all (2 bits)
+	 */
 	uint8_t ambientOcclusion;
 	uint8_t colorIndex;
-	/* currently we only need to know whether it's water, or not. */
-	VoxelType material;
+	/**
+	 * Face: 0-5 (3 bits)
+	 * @see voxel::FaceNames
+	 */
+	uint8_t face;
 	uint8_t padding;
 };
 static_assert(sizeof(VoxelVertex) == 16, "Unexpected size of the vertex struct");
