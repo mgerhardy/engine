@@ -85,7 +85,7 @@ jobs:
             vcpkg install libpq
             mkdir build
             cd build
-            cmake .. -DRCON=OFF -DCMAKE_BUILD_TYPE=Release
+            cmake .. -DRCON=OFF -DCMAKE_BUILD_TYPE=Release -DDISABLE_UNITY=OFF
             cmake --build .
             cmake --install . --component voxedit --prefix voxedit-install
             cmake --install . --component mapview --prefix mapview-install
