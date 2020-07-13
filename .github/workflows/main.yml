@@ -22,7 +22,6 @@ jobs:
             ctest -V -C Debug -R tests-core$
             ctest -V -C Debug -R tests-eventmgr$
             ctest -V -C Debug -R tests-math$
-            ctest -V -C Debug -R tests-noise$
             ctest -V -C Debug -R tests-persistence$
             ctest -V -C Debug -R tests-poi$
             ctest -V -C Debug -R tests-shadertool$
