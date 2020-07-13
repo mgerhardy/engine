@@ -14,7 +14,6 @@ jobs:
             cd build
             cmake ..
             make -j 2
-            ctest -V -C Debug -R tests-ai$
             ctest -V -C Debug -R tests-animation$
             ctest -V -C Debug -R tests-backend$
             ctest -V -C Debug -R tests-computeshadertool$
