@@ -29,7 +29,7 @@ public:
 	}
 };
 
-TEST_F(ModifierTest, testModifier) {
+TEST_F(ModifierTest, DISABLED_testModifier) {
 	if (!_supported) {
 		return;
 	}
