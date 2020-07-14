@@ -135,13 +135,27 @@ void ServerLoop::construct() {
 		UserPtr user = _entityStorage->user(id);
 		if (user) {
 			Log::info("Set user position to %i:%i", x, z);
-			user->setPos(glm::vec3(x, 20, z));
+			glm::vec3 pos(x, 20, z);
+			voxelutil::FloorTraceResult result = user->map()->findFloor(pos);
+			if (!result.isValid()) {
+				Log::warn("Failed to teleport entity");
+				return;
+			}
+			pos.y = result.heightLevel;
+			user->setPos(pos);
 			return;
 		}
 		NpcPtr npc = _entityStorage->npc(id);
 		if (npc) {
 			Log::info("Set npc position to %i:%i", x, z);
-			npc->setPos(glm::vec3(x, 20, z));
+			glm::vec3 pos(x, 20, z);
+			voxelutil::FloorTraceResult result = npc->map()->findFloor(pos);
+			if (!result.isValid()) {
+				Log::warn("Failed to teleport entity");
+				return;
+			}
+			pos.y = result.heightLevel;
+			npc->setPos(pos);
 			return;
 		}
 		Log::warn("Could not update position for entity id %s", args[0].c_str());
