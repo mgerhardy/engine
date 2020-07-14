@@ -51,11 +51,7 @@ bool Zone::doAddAI(const AIPtr& ai) {
 	return true;
 }
 
-bool Zone::doRemoveAI(const AIPtr& ai) {
-	if (!ai) {
-		return false;
-	}
-	const CharacterId& id = ai->getCharacter()->getId();
+bool Zone::doRemoveAI(const CharacterId& id) {
 	AIMapIter i = _ais.find(id);
 	if (i == _ais.end()) {
 		return false;
@@ -90,19 +86,16 @@ bool Zone::destroyAI(const CharacterId& id) {
 	return true;
 }
 
-bool Zone::removeAI(const AIPtr& ai) {
-	if (!ai) {
-		return false;
-	}
+bool Zone::removeAI(const CharacterId& id) {
 	core::ScopedLock scopedLock(_scheduleLock);
-	_scheduledRemove.push_back(ai);
+	_scheduledRemove.push_back(id);
 	return true;
 }
 
 void Zone::update(int64_t dt) {
 	core_trace_scoped(ZoneUpdate);
 	{
-		AIScheduleList scheduledRemove;
+		CharacterIdList scheduledRemove;
 		AIScheduleList scheduledAdd;
 		CharacterIdList scheduledDestroy;
 		{
@@ -116,8 +109,8 @@ void Zone::update(int64_t dt) {
 			doAddAI(ai);
 		}
 		scheduledAdd.clear();
-		for (const AIPtr& ai : scheduledRemove) {
-			doRemoveAI(ai);
+		for (auto id : scheduledRemove) {
+			doRemoveAI(id);
 		}
 		scheduledRemove.clear();
 		for (auto id : scheduledDestroy) {

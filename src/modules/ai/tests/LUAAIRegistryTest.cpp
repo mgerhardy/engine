@@ -99,7 +99,7 @@ protected:
 			const ai::TreeNodeStatus executionStatus = node->execute(ai, 1L);
 			ASSERT_EQ(status, executionStatus) << "Lua script returned an unexpected TreeNodeStatus value for node: " << nodeName;
 		}
-		ASSERT_TRUE(zone.removeAI(ai)) << "Nodename: " << nodeName;
+		ASSERT_TRUE(zone.removeAI(_id)) << "Nodename: " << nodeName;
 		ai->setPause(true);
 		zone.update(1l);
 		ai->setPause(false);

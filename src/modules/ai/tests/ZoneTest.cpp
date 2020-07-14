@@ -30,8 +30,8 @@ TEST_F(ZoneTest, testChanges) {
 	zone.update(1);
 	ASSERT_FALSE(ai->isDebuggingActive()) << "Debug is still active for entity";
 	ASSERT_FALSE(ai2->isDebuggingActive()) << "Debug is still active for newly added entity";
-	ASSERT_TRUE(zone.removeAI(ai)) << "Could not remove ai from zone";
-	ASSERT_TRUE(zone.removeAI(ai2)) << "Could not remove ai from zone";
+	ASSERT_TRUE(zone.removeAI(1)) << "Could not remove ai from zone";
+	ASSERT_TRUE(zone.removeAI(2)) << "Could not remove ai from zone";
 }
 
 TEST_F(ZoneTest, testMassAdd1000000) {

@@ -105,7 +105,7 @@ void Map::update(long dt) {
 		Log::debug("remove npc " PRIEntId, npc->id());
 		_quadTree.remove(QuadTreeNode { npc });
 		i = _npcs.erase(i);
-		_zone->removeAI(npc->ai());
+		_zone->removeAI(npc->id());
 		_eventBus->enqueue(std::make_shared<EntityDeleteEvent>(npc->id(), npc->entityType()));
 	}
 }
@@ -228,7 +228,7 @@ bool Map::removeNpc(EntityId id) {
 	NpcPtr npc = i->second;
 	_quadTree.remove(QuadTreeNode { npc });
 	_npcs.erase(i);
-	_zone->removeAI(npc->ai());
+	_zone->removeAI(npc->id());
 	_eventBus->enqueue(std::make_shared<EntityRemoveFromMapEvent>(npc));
 	return true;
 }

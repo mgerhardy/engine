@@ -50,7 +50,7 @@ protected:
 	const core::String _name;
 	AIMap _ais;
 	AIScheduleList _scheduledAdd;
-	AIScheduleList _scheduledRemove;
+	CharacterIdList _scheduledRemove;
 	CharacterIdList _scheduledDestroy;
 	bool _debug;
 	mutable core_trace_mutex(core::Lock, _lock, "AIZone");
@@ -66,9 +66,9 @@ protected:
 	 */
 	bool doAddAI(const AIPtr& ai);
 	/**
-	 * @note This doesn't lock the zone - but because @c Zone::update already does it
+	 * @note This doesn't lock the zone - but only because @c Zone::update already does it
 	 */
-	bool doRemoveAI(const AIPtr& ai);
+	bool doRemoveAI(const CharacterId& id);
 	/**
 	 * @brief @c removeAI will access the character and the @c AI object, this method does not need access to the data anymore.
 	 *
@@ -120,7 +120,7 @@ public:
 	 *
 	 * @note This does not lock the zone for writing but a dedicated schedule lock
 	 */
-	bool removeAI(const AIPtr& ai);
+	bool removeAI(const CharacterId& id);
 
 	/**
 	 * @brief Remove multiple AIPtr instances but only lock once.
