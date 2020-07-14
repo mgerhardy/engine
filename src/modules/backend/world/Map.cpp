@@ -70,11 +70,10 @@ bool Map::updateEntity(const EntityPtr& entity, long dt) {
 	set.reserve(contents.size());
 	for (const QuadTreeNode& node : contents) {
 		// TODO: check the distance - the rect might contain more than the circle would...
-		if (entity->inFrustum(node.entity)) {
+		if (node.entity->id() != entity->id()) {
 			set.insert(node.entity);
 		}
 	}
-	set.erase(entity);
 	entity->updateVisible(set);
 	return true;
 }
