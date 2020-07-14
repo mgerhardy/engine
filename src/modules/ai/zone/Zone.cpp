@@ -18,8 +18,7 @@ Zone::~Zone() {
 		_groupManager.removeFromAllGroups(ai);
 	}
 	for (const auto& ai : _scheduledRemove) {
-		ai->setZone(nullptr);
-		_groupManager.removeFromAllGroups(ai);
+		doRemoveAI(ai);
 	}
 	_ais.clear();
 }
