@@ -4,6 +4,14 @@ A more detailed changelog can be found on [github](https://github.com/mgerhardy/
 
 ## 0.0.5 (2020-XX-XX)
 
+Client:
+
+   - Fixed movement
+
+Server:
+
+   - Fixed visibility check
+
 VoxEdit:
 
    - Started to add scene mode edit support (move volumes)
@@ -26,6 +34,7 @@ General:
    - Improved gizmo rendering and translation support
    - Fixed memory leaks on shutdown
    - Improved profiling support via tracy
+   - Fixed segfault while removing npcs
 
 ## 0.0.4 (2020-06-07)
 
