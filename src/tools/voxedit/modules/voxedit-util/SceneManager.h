@@ -96,6 +96,7 @@ private:
 	 */
 	video::Camera* _camera = nullptr;
 
+	int32_t _aabbMeshIndex = -1;
 	int32_t _referencePointMesh = -1;
 	glm::mat4 _referencePointModelMatrix { 1.0f };
 
@@ -218,6 +219,7 @@ private:
 	void replaceColor(uint8_t oldIndex, int newIndex);
 	bool randomSimilarColor(uint8_t oldIndex, uint8_t density, uint8_t colorCount);
 	void mirror(math::Axis axis);
+	void updateAABBMesh();
 public:
 	~SceneManager();
 

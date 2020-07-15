@@ -81,7 +81,7 @@ void Client::sendMovement() {
 	// TODO: we can't use the camera, as we are aiming for a freelook mode, where the players' angles might be different from the camera's
 	const video::Camera& camera = _camera.camera();
 	const float pitch = camera.pitch();
-	const float yaw = camera.yaw();
+	const float yaw = camera.horizontalYaw();
 	glm::vec2 moveAngles(pitch, yaw);
 
 	if (_lastMoveMask != moveMask || !glm::all(glm::epsilonEqual(moveAngles, _lastMoveAngles, 0.0001f))) {

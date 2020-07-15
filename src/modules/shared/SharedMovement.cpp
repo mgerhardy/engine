@@ -65,7 +65,7 @@ double SharedMovement::gravity() const {
 glm::vec3 SharedMovement::update(double deltaFrameSeconds, float orientation, double speed, const glm::vec3& currentPos, const WalkableFloorResolver& heightResolver) {
 	core_trace_scoped(UpdateSharedMovement);
 	core_assert_msg(deltaFrameSeconds > 0.0, "Expected to get deltaFrameSeconds > 0 - but got %f", deltaFrameSeconds);
-	core_assert_msg(speed > 0.0f, "Expected to get speed > 0, but got %f", _speed);
+	core_assert_msg(speed > 0.0f, "Expected to get speed > 0, but got %f", speed);
 	_speed = speed;
 	const glm::quat& rot = glm::angleAxis(orientation, glm::up);
 	glm::vec3 newPos = glm::mix(currentPos, currentPos + calculateDelta(rot), deltaFrameSeconds);

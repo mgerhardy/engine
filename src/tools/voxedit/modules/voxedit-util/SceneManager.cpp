@@ -624,6 +624,7 @@ bool SceneManager::setNewVolume(int idx, voxel::RawVolume* volume, bool deleteMe
 	const voxel::Region& region = volume->region();
 	delete _volumeRenderer.setVolume(idx, volume, deleteMesh);
 
+	updateAABBMesh();
 	if (volume != nullptr) {
 		updateGridRenderer(region);
 	} else {
@@ -716,6 +717,7 @@ void SceneManager::shift(int layerId, const glm::ivec3& m) {
 	setGizmoPosition();
 	const voxel::Region& newRegion = model->region();
 	updateGridRenderer(newRegion);
+	updateAABBMesh();
 	oldRegion.accumulate(newRegion);
 	modified(layerId, oldRegion);
 }
@@ -801,20 +803,33 @@ void SceneManager::renderAnimation(const video::Camera& camera) {
 	_animationRenderer.render(animationEntity(), camera);
 }
 
+void SceneManager::updateAABBMesh() {
+	Log::debug("Update aabb mesh");
+	_shapeBuilder.clear();
+	_shapeBuilder.setColor(core::Color::Gray);
+	for (int idx = 0; idx < (int)_layerMgr.layers().size(); ++idx) {
+		const Layer& layer = _layerMgr.layer(idx);
+		if (!layer.valid) {
+			continue;
+		}
+		const voxel::RawVolume* volume = _volumeRenderer.volume(idx);
+		core_assert_always(volume != nullptr);
+		const voxel::Region& region = volume->region();
+		_shapeBuilder.aabb(aabb(region));
+	}
+	const voxel::Region& region = modelVolume()->region();
+	_shapeBuilder.setColor(core::Color::White);
+	_shapeBuilder.aabb(aabb(region));
+	_shapeRenderer.createOrUpdate(_aabbMeshIndex, _shapeBuilder);
+}
+
 void SceneManager::render(const video::Camera& camera, uint8_t renderMask) {
 	const bool depthTest = video::enable(video::State::DepthTest);
 	const bool renderUI = (renderMask & RenderUI) != 0u;
 	const bool renderScene = (renderMask & RenderScene) != 0u;
 	if (renderUI) {
 		if (_editMode == EditMode::Scene) {
-			const voxel::Region& region = modelVolume()->region();
-			const bool oldRenderGrid = _gridRenderer.renderGrid();
-			const bool oldRenderAABB = _gridRenderer.renderAABB();
-			_gridRenderer.setRenderGrid(false);
-			_gridRenderer.setRenderAABB(true);
-			_gridRenderer.render(camera, aabb(region));
-			_gridRenderer.setRenderGrid(oldRenderGrid);
-			_gridRenderer.setRenderAABB(oldRenderAABB);
+			_shapeRenderer.render(_aabbMeshIndex, camera);
 		} else {
 			const voxel::Region& region = modelVolume()->region();
 			_gridRenderer.render(camera, aabb(region));
@@ -1641,6 +1656,9 @@ void SceneManager::shutdown() {
 	_animationCache->shutdown();
 	_character.shutdown();
 	_bird.shutdown();
+
+	_referencePointMesh = -1;
+	_aabbMeshIndex = -1;
 }
 
 animation::AnimationEntity& SceneManager::animationEntity() {
@@ -2031,6 +2049,7 @@ void SceneManager::onActiveLayerChanged(int old, int active) {
 	core_assert_always(volume != nullptr);
 	const voxel::Region& region = volume->region();
 	updateGridRenderer(region);
+	updateAABBMesh();
 	if (!region.containsPoint(referencePosition())) {
 		glm::ivec3 center = region.getCenter();
 		center.y = region.getLowerY();
@@ -2091,6 +2110,7 @@ void SceneManager::onLayerDeleted(int layerId, const Layer& layer) {
 		_needAutoSave = true;
 		_dirty = true;
 		delete v;
+		updateAABBMesh();
 	}
 }
 

@@ -14,8 +14,8 @@ jobs:
             cd build
             cmake ..
             make -j 2
-            ctest -V -C Debug -R tests-ai$
             ctest -V -C Debug -R tests-animation$
+            ctest -V -C Debug -R tests-backend$
             ctest -V -C Debug -R tests-computeshadertool$
             ctest -V -C Debug -R tests-cooldown$
             ctest -V -C Debug -R tests-core$
@@ -51,11 +51,13 @@ jobs:
             make -j 2
             ctest -V -C Debug -R tests-ai$
             ctest -V -C Debug -R tests-animation$
+            ctest -V -C Debug -R tests-backend$
             ctest -V -C Debug -R tests-computeshadertool$
             ctest -V -C Debug -R tests-cooldown$
             ctest -V -C Debug -R tests-core$
             ctest -V -C Debug -R tests-eventmgr$
             ctest -V -C Debug -R tests-math$
+            ctest -V -C Debug -R tests-noise$
             ctest -V -C Debug -R tests-persistence$
             ctest -V -C Debug -R tests-poi$
             ctest -V -C Debug -R tests-shadertool$
@@ -76,6 +78,13 @@ jobs:
         runs-on: windows-latest
         steps:
         - uses: actions/checkout@v1
+        - name: Install vcpkg and packages
+          uses: lukka/run-vcpkg@v2
+          id: runvcpkg
+          with:
+            vcpkgGitCommitId: 2f7a104d4d6f1f3790db929f85a4086aa6973d7f
+            vcpkgTriplet: 'x64-windows'
+            vcpkgArguments: 'libpq'
         - name: Windows
           run: |
             set VCPKG_DEFAULT_TRIPLET=x64-windows
@@ -83,18 +92,20 @@ jobs:
             vcpkg install libpq
             mkdir build
             cd build
-            cmake .. -DRCON=OFF -DCMAKE_BUILD_TYPE=Release
+            cmake .. -DRCON=OFF -DCMAKE_BUILD_TYPE=Release -DDISABLE_UNITY=OFF
             cmake --build .
             cmake --install . --component voxedit --prefix voxedit-install
             cmake --install . --component mapview --prefix mapview-install
             cmake --install . --component voxconvert --prefix voxconvert-install
             ctest -V -C Debug -R tests-ai$
             ctest -V -C Debug -R tests-animation$
+            ctest -V -C Debug -R tests-backend$
             ctest -V -C Debug -R tests-computeshadertool$
             ctest -V -C Debug -R tests-cooldown$
             ctest -V -C Debug -R tests-core$
             ctest -V -C Debug -R tests-eventmgr$
             ctest -V -C Debug -R tests-math$
+            ctest -V -C Debug -R tests-noise$
             ctest -V -C Debug -R tests-persistence$
             ctest -V -C Debug -R tests-poi$
             ctest -V -C Debug -R tests-shadertool$
