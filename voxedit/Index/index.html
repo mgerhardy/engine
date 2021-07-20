@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Martin Gerhardy">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>General - vengi - voxel engine and its tools</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "General";
+    var mkdocs_page_input_path = "voxedit/Index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="vengi - voxel engine and its tools - General" />
+<meta property="og:description" content="Voxel editor for linux windows and macosx" />
+<meta property="og:url" content="None" />
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-knight.png" />
+<meta property="og:image:type" content="image/png" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@MartinGerhardy" />
+<meta name="twitter:title" content="vengi - voxel engine and its tools - General" />
+<meta name="twitter:description" content="Voxel editor for linux windows and macosx" />
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-knight.png" />
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> vengi - voxel engine and its tools</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Welcome to vengi</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basics</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Dependencies/">Dependencies</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Compilation/">Building</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Configuration/">Configuration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Formats/">Formats</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG/">Changelog</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">VoxEdit</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">General</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controls">Controls</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#palette">Palette</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../LUAScript/">Scripting api</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Client/Server</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../server/Index/">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../server/Setup/">Setup</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../voxconvert/Index/">VoxConvert</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../thumbnailer/Index/">Thumbnailer</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mapview/Index/">MapView</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Development</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../VisualTests/">Visual Tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../GameDesign/">Game Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ShaderTool/">Shader integration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../ComputeShaderTool/">Compute Shader integration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Persistence/">Persistence</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Animations/">Animations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Attributes/">Attributes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Network/">Network</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../AIRemoteDebugger/">AI development</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Test applications</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../TestAnimation/">TestAnimation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Traze/">Traze</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../VisualTests/">Visual Tests</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">vengi - voxel engine and its tools</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>VoxEdit &raquo;</li>
+        
+      
+    
+    <li>General</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mgerhardy/engine/edit/master/docs/voxedit/Index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="general">General</h1>
+<p>This is an opensource, cross platform voxel volume editor.</p>
+<p>You can load and save a lot of different <a href="../../Formats/">voxel formats</a>.</p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/dwarf-in-editor.jpeg" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-custom-shader.png" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-quad-view.png" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/animation-frames.gif" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/quad-view-knight.png" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-command_and_conquer.png" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-duke.png" /></p>
+<p><img alt="image" src="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-import-planes.png" /></p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Auto-saving</li>
+<li>Console to script your modeling (CTRL+TAB cmdlist)</li>
+<li>LUA scripting api</li>
+<li>Key bindings via cfg file</li>
+<li>Four viewport mode</li>
+<li>Grid resolution</li>
+<li>Layer support</li>
+<li>Mirror mode</li>
+<li>Auto cropping volumes</li>
+<li>Auto generate content like trees or noise volumes</li>
+<li>Import heightmaps</li>
+<li>Undo/Redo</li>
+<li>Custom color palettes</li>
+<li>Reference positions to rotate around or create auto-generated structures at</li>
+<li>Viewport screenshots</li>
+<li>Modelling with the left and right mouse buttons</li>
+<li>Modelling without the mouse - just via shortcuts and keyboard</li>
+<li>Layer animation support</li>
+<li>Skeletal character animation support</li>
+<li>Custom key bindings</li>
+<li>Show commands of actions (to configure your own key bindings)</li>
+<li>Rotate around reference position or center of volume</li>
+<li>Import bitmaps as plane</li>
+<li>Copy/Cut/Paste - paste to cursor or reference position</li>
+<li>Exporting single layers into meshes</li>
+<li>Generate level of details (LOD) volumes</li>
+</ul>
+<h2 id="controls">Controls</h2>
+<ul>
+<li>Placing voxels via left mouse button or SHIFT+[CTRL+]Cursors</li>
+<li>Deleting voxels via right mouse button</li>
+<li>Rotating viewport via middle mouse button or holding alt and moving the mouse</li>
+<li>Holding the left or right mouse buttons spans an AABB to perform the action in</li>
+<li>Using the keybinding for <code>+actionexecute</code> (v) command allows you to also span an AABB with
+  the cursor keys (resp. the keys that are bound to the <code>+movecursor[direction]</code> commands).</li>
+<li>Enter places the reference position at the current cursor position</li>
+<li>SHIFT+Tab opens the console (type <code>cmdlist</code> and <code>cvarlist</code>)</li>
+</ul>
+<h2 id="palette">Palette</h2>
+<p>The editor is built around a palette of 256 colors. Custom palettes are supported. The images should have a 1x256 pixel dimension.</p>
+<p>In order to use some of the feature for procedurally generated content, you also have to define your material types with a lua script. See the existing palette lua script as a reference.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../LUAScript/" class="btn btn-neutral float-right" title="Scripting api">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../CHANGELOG/" class="btn btn-neutral" title="Changelog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mgerhardy/engine/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../CHANGELOG/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../LUAScript/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

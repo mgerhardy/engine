@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+{% set title = config.site_name %}
+{% if page and page.meta and page.meta.title %}
+  {% set title = title ~ " - " ~ page.meta.title %}
+{% elif page and page.title and not page.is_homepage %}
+  {% set title = title ~ " - " ~ page.title | striptags %}
+{% endif %}
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:description" content="{{ config.site_description }}" />
+<meta property="og:url" content="{{ page.canonical_url }}" />
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-knight.png" />
+<meta property="og:image:type" content="image/png" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@MartinGerhardy" />
+<meta name="twitter:title" content="{{ title }}" />
+<meta name="twitter:description" content="{{ config.site_description }}" />
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-knight.png" />
+{% endblock %}

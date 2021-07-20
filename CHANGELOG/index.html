@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Martin Gerhardy">
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Changelog - vengi - voxel engine and its tools</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Changelog";
+    var mkdocs_page_input_path = "CHANGELOG.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="vengi - voxel engine and its tools - Changelog" />
+<meta property="og:description" content="Voxel editor for linux windows and macosx" />
+<meta property="og:url" content="None" />
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-knight.png" />
+<meta property="og:image:type" content="image/png" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@MartinGerhardy" />
+<meta name="twitter:title" content="vengi - voxel engine and its tools - Changelog" />
+<meta name="twitter:description" content="Voxel editor for linux windows and macosx" />
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/mgerhardy/engine/images/voxedit-knight.png" />
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> vengi - voxel engine and its tools</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Welcome to vengi</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basics</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../Dependencies/">Dependencies</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Compilation/">Building</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Configuration/">Configuration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Formats/">Formats</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Changelog</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#0010-2020-xx-xx">0.0.10 (2020-XX-XX)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#009-2020-10-03">0.0.9 (2020-10-03)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#008-2020-09-30">0.0.8 (2020-09-30)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#007-2020-09-15">0.0.7 (2020-09-15)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#006-2020-08-02">0.0.6 (2020-08-02)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#005-2020-07-26">0.0.5 (2020-07-26)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#004-2020-06-07">0.0.4 (2020-06-07)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#003-2020-05-17">0.0.3 (2020-05-17)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#002-2020-05-06">0.0.2 (2020-05-06)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#001-initial-release-2020-02-08">0.0.1 "Initial Release" (2020-02-08)</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">VoxEdit</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../voxedit/Index/">General</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voxedit/LUAScript/">Scripting api</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Client/Server</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../server/Index/">Server</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../server/Setup/">Setup</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../voxconvert/Index/">VoxConvert</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../thumbnailer/Index/">Thumbnailer</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mapview/Index/">MapView</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Development</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../VisualTests/">Visual Tests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../GameDesign/">Game Design</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ShaderTool/">Shader integration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ComputeShaderTool/">Compute Shader integration</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Persistence/">Persistence</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Animations/">Animations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Attributes/">Attributes</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Network/">Network</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../AIRemoteDebugger/">AI development</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Test applications</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../TestAnimation/">TestAnimation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../Traze/">Traze</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../VisualTests/">Visual Tests</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">vengi - voxel engine and its tools</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Basics &raquo;</li>
+        
+      
+    
+    <li>Changelog</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mgerhardy/engine/edit/master/docs/CHANGELOG.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="changelog">Changelog</h1>
+<p>A more detailed changelog can be found on <a href="https://github.com/mgerhardy/engine/commits/">github</a>.</p>
+<h2 id="0010-2020-xx-xx">0.0.10 (2020-XX-XX)</h2>
+<p>General:</p>
+<ul>
+<li>Added <code>--version</code> and <code>-v</code> commandline option to show the current version of each application</li>
+<li>Fixed texture coordinate indices for multi layer obj exports</li>
+<li>Improved magicavoxel transform support for some models</li>
+<li>Fixed magicavoxel x-axis handling</li>
+<li>Support newer versions of vxm</li>
+<li>Fixed bug in file dialog which prevents you to delete characters #77</li>
+</ul>
+<p>VoxEdit:</p>
+<ul>
+<li>Improved scene edit mode</li>
+<li>Progress on the ui conversion to dear imgui</li>
+</ul>
+<p>Tools:</p>
+<ul>
+<li>Rewrote the ai debugger</li>
+</ul>
+<h2 id="009-2020-10-03">0.0.9 (2020-10-03)</h2>
+<p>General:</p>
+<ul>
+<li>Fixed obj texcoord export: Sampling the borders of the texel now</li>
+<li>Added multi object support to obj export</li>
+</ul>
+<h2 id="008-2020-09-30">0.0.8 (2020-09-30)</h2>
+<p>General:</p>
+<ul>
+<li>Added obj and ply export support</li>
+<li>Restructured the documentation</li>
+<li>Improved font support for imgui ui</li>
+</ul>
+<p>Backend:</p>
+<ul>
+<li>Reworked ai debugging network protocol</li>
+<li>Optimized behaviour tree filters</li>
+</ul>
+<h2 id="007-2020-09-15">0.0.7 (2020-09-15)</h2>
+<p>General:</p>
+<ul>
+<li>Fixed wrong-name-for-symlinks shown</li>
+<li>Added support for writing qef files</li>
+<li>Added lua script interface to generate voxels</li>
+<li>Added stacktrace support for windows</li>
+<li>Refactored module structure (split app and core)</li>
+<li>Optimized character animations</li>
+<li>Hot reload character animation C++ source changes in debug builds</li>
+<li>Added quaternion lua support</li>
+<li>Updated external dependencies</li>
+<li>Refactored lua bindings</li>
+<li>Support Chronovox-Studio files (csm)</li>
+<li>Support Nick's Voxel Model files (nvm)</li>
+<li>Support more versions of the vxm format</li>
+</ul>
+<p>VoxEdit:</p>
+<ul>
+<li>Converted some voxel generation functions to lua</li>
+<li>Implemented new voxel generator scripts</li>
+</ul>
+<h2 id="006-2020-08-02">0.0.6 (2020-08-02)</h2>
+<p>General:</p>
+<ul>
+<li>Fixed gamma cvar usage</li>
+<li>Enable vsync by default</li>
+<li>Updated external dependencies</li>
+<li>Activated OpenCL in a few tools</li>
+<li>Added symlink support to virtual filesystem</li>
+</ul>
+<p>VoxEdit:</p>
+<ul>
+<li>Fixed loading palette lua script with material definitions</li>
+<li>Fixed error in resetting mirror axis</li>
+<li>Fixed noise generation</li>
+<li>Reduced palette widget size</li>
+<li>Fixed palette widget being invisible on some dpi scales</li>
+</ul>
+<h2 id="005-2020-07-26">0.0.5 (2020-07-26)</h2>
+<p>Client:</p>
+<ul>
+<li>Fixed movement</li>
+</ul>
+<p>Server:</p>
+<ul>
+<li>Fixed visibility check</li>
+<li>Fixed segfault while removing npcs</li>
+</ul>
+<p>VoxEdit:</p>
+<ul>
+<li>Started to add scene mode edit support (move volumes)</li>
+</ul>
+<p>VoxConvert:</p>
+<ul>
+<li>Support different palette files (cvar <code>palette</code>)</li>
+<li>Support writing outside the registered application paths</li>
+<li>Allow to overwrite existing files</li>
+</ul>
+<p>General:</p>
+<ul>
+<li>Switched to qb as default volume format</li>
+<li>Improved scene graph support for Magicavoxel vox files</li>
+<li>Fixed invisible voxels for qb and qbt (Qubicle) volume format</li>
+<li>Support automatic loading different volume formats for assets</li>
+<li>Support Command&amp;Conquer vxl files</li>
+<li>Support Ace of Spades map files (vxl)</li>
+<li>Support Qubicle exchange format (qef)</li>
+<li>Perform mesh extraction in dedicated threads for simple volume rendering</li>
+<li>Improved gizmo rendering and translation support</li>
+<li>Fixed memory leaks on shutdown</li>
+<li>Improved profiling support via tracy</li>
+</ul>
+<h2 id="004-2020-06-07">0.0.4 (2020-06-07)</h2>
+<p>General:</p>
+<ul>
+<li>Added support for writing binvox files</li>
+<li>Added support for reading kvx (Build-Engine) and kv6 (SLAB6) voxel volumes</li>
+<li>Performed some AFL hardening on voxel format code</li>
+<li>Don't execute keybindings if the console is active</li>
+<li>Added basic shader storage buffer support</li>
+<li>Reduced voxel vertex size from 16 to 8 bytes</li>
+<li>Apply checkerboard pattern to water surface</li>
+<li>Improved tracy profiling support</li>
+<li>A few highdpi fixes</li>
+</ul>
+<p>Server:</p>
+<ul>
+<li>Allow to specify the database port</li>
+<li>Fixed loading database chunks</li>
+</ul>
+<p>VoxEdit:</p>
+<ul>
+<li>Added <code>scale</code> console command to produce LODs</li>
+</ul>
+<p>VoxConvert:</p>
+<ul>
+<li>Added ability to merge all layers into one</li>
+</ul>
+<h2 id="003-2020-05-17">0.0.3 (2020-05-17)</h2>
+<p>Assets:</p>
+<ul>
+<li>Added music tracks</li>
+<li>Updated and added some new voxel models</li>
+</ul>
+<p>VoxEdit:</p>
+<ul>
+<li>Made some commands available to the ui</li>
+<li>Tweak <code>thicken</code> command</li>
+<li>Updated default tree generation ui values</li>
+<li>Save layers to all supported formats</li>
+<li>Fixed tree generation issue for some tree types</li>
+<li>Changed default reference position to be at the center bottom</li>
+<li>Reduced max supported volume size</li>
+</ul>
+<p>General:</p>
+<ul>
+<li>Print stacktraces on asserts</li>
+<li>Improved tree generation (mainly used in voxedit)</li>
+<li>Fixed a few asserts in debug mode for the microsoft stl</li>
+<li>Added debian package support</li>
+<li>Fixed a few undefined behaviour issues and integer overflows that could lead to problems</li>
+<li>Reorganized some modules to speed up compilation and linking times</li>
+<li>Improved audio support</li>
+<li>Fixed timing issues</li>
+<li>Fixed invalid GL states after deleting objects</li>
+</ul>
+<p>VoxConvert:</p>
+<ul>
+<li>Added a new tool to convert different voxel volumes between supported formats
+     Currently supported are cub (CubeWorld), vox (MagicaVoxel), vmx (VoxEdit Sandbox), binvox
+     and qb/qbt (Qubicle)</li>
+</ul>
+<p>Client:</p>
+<ul>
+<li>Added footstep and ambience sounds</li>
+</ul>
+<h2 id="002-2020-05-06">0.0.2 (2020-05-06)</h2>
+<p>VoxEdit:</p>
+<ul>
+<li>Static linked VC++ Runtime</li>
+<li>Extract voxels by color into own layers</li>
+<li>Updated tree and noise windows</li>
+<li>Implemented <code>thicken</code> console command</li>
+<li>Escape abort modifier action</li>
+<li>Added L-System panel</li>
+</ul>
+<p>General:</p>
+<ul>
+<li>Fixed binvox header parsing</li>
+<li>Improved compilation speed</li>
+<li>Fixed compile errors with locally installed glm 0.9.9</li>
+<li>Fixed setup-documentation errors</li>
+<li>Fixed shader pipeline rebuilds if included shader files were modified</li>
+<li>Improved palm tree generator</li>
+<li>Optimized mesh extraction for the world (streaming volumes)</li>
+<li>Added new voxel models</li>
+<li>(Re-)added Tracy profiler support and removed own imgui-based implementation</li>
+<li>Fixed writing of key bindings</li>
+<li>Improved compile speed and further removed the STL from a lot of places</li>
+<li>Updated all dependencies to their latest version</li>
+</ul>
+<p>Server/Client:</p>
+<ul>
+<li>Added DBChunkPersister</li>
+<li>Built-in HTTP server to download the chunks</li>
+<li>Replaced ui for the client</li>
+</ul>
+<p>Voxel rendering</p>
+<ul>
+<li>Implemented reflection for water surfaces</li>
+<li>Apply checkerboard pattern to voxel surfaces</li>
+<li>Up-scaling effect for new voxel chunks while they pop in</li>
+<li>Optimized rendering by not using one giant vbo</li>
+</ul>
+<h2 id="001-initial-release-2020-02-08">0.0.1 "Initial Release" (2020-02-08)</h2>
+<p>VoxEdit:</p>
+<ul>
+<li>initial release</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../voxedit/Index/" class="btn btn-neutral float-right" title="General">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Formats/" class="btn btn-neutral" title="Formats"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mgerhardy/engine/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../Formats/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../voxedit/Index/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
